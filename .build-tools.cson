@@ -1,0 +1,56 @@
+providers: [
+  {
+    key: "bt"
+    config:
+      commands: [
+        {
+          project: "/home/lookfiresu/Desktop/code/python"
+          source: "/home/lookfiresu/Desktop/code/python/.build-tools.cson"
+          name: "python calculator"
+          command: "python calculator.py"
+          wd: "."
+          env: {}
+          modifier: {}
+          stdout:
+            pty: false
+            highlighting: "nh"
+            ansi_option: "ignore"
+          stderr:
+            highlighting: "hc"
+            profile: "python"
+          output:
+            console:
+              close_success: false
+              queue_in_buffer: true
+              stdin: false
+            linter:
+              no_trace: false
+          version: 1
+        }
+        {
+          project: "/home/lookfiresu/Desktop/code/python"
+          source: "/home/lookfiresu/Desktop/code/python/.build-tools.cson"
+          name: "python guess_number"
+          command: "python guess_number.py"
+          wd: "."
+          env: {}
+          modifier: {}
+          stdout:
+            pty: false
+            highlighting: "nh"
+            ansi_option: "ignore"
+          stderr:
+            highlighting: "hc"
+            profile: "python"
+          output:
+            console:
+              close_success: false
+              queue_in_buffer: true
+              stdin: false
+            linter:
+              no_trace: false
+          version: 1
+        }
+      ]
+  }
+]

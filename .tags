@@ -1,0 +1,139 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+providers	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^providers: [$/;"	function	line:1
+key	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^    key: "bt"$/;"	function	line:3
+config	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^    config:$/;"	function	line:4
+commands	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^      commands: [$/;"	function	line:5
+project	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          project: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_2"$/;"	function	line:7
+source	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          source: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_2\/.build-tools.cson"$/;"	function	line:8
+name	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          name: "python calculator"$/;"	function	line:9
+command	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          command: "python calculator.py"$/;"	function	line:10
+wd	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          wd: "."$/;"	function	line:11
+env	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          env: {}$/;"	function	line:12
+modifier	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          modifier: {}$/;"	function	line:13
+stdout	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          stdout:$/;"	function	line:14
+pty	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            pty: false$/;"	function	line:15
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            highlighting: "nh"$/;"	function	line:16
+ansi_option	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            ansi_option: "ignore"$/;"	function	line:17
+stderr	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          stderr:$/;"	function	line:18
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            highlighting: "hc"$/;"	function	line:19
+profile	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            profile: "python"$/;"	function	line:20
+output	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          output:$/;"	function	line:21
+console	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            console:$/;"	function	line:22
+close_success	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^              close_success: false$/;"	function	line:23
+queue_in_buffer	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^              queue_in_buffer: true$/;"	function	line:24
+stdin	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^              stdin: false$/;"	function	line:25
+linter	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^            linter:$/;"	function	line:26
+no_trace	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^              no_trace: false$/;"	function	line:27
+version	/home/lookfiresu/Desktop/code/python/chapter_2/.build-tools.cson	/^          version: 1$/;"	function	line:28
+area_triangle_sss	/home/lookfiresu/Desktop/code/python/chapter_1/function.py	/^def area_triangle_sss(a, b, c):$/;"	function	line:113
+favorites	/home/lookfiresu/Desktop/code/python/chapter_1/function.py	/^def favorites(instructor):$/;"	function	line:119
+my_name	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^my_name = "chensu"$/;"	variable	line:22
+my_age	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^my_age = 23$/;"	variable	line:25
+my_age	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^my_age = my_age + 1$/;"	variable	line:26
+nums	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^nums = 49$/;"	variable	line:29
+ten	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^ten = nums \/ 10$/;"	variable	line:30
+tens	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^tens = nums \/\/ 10$/;"	variable	line:31
+ones	/home/lookfiresu/Desktop/code/python/chapter_1/hello_world.py	/^ones = nums % 10$/;"	variable	line:32
+counter	/home/lookfiresu/Desktop/code/python/chapter_1/event-driven-program.py	/^counter = 0$/;"	variable	line:43
+increment	/home/lookfiresu/Desktop/code/python/chapter_1/event-driven-program.py	/^def increment():$/;"	function	line:46
+tick	/home/lookfiresu/Desktop/code/python/chapter_1/event-driven-program.py	/^def tick():$/;"	function	line:51
+frame	/home/lookfiresu/Desktop/code/python/chapter_1/event-driven-program.py	/^frame = simplegui.create_frame("SimpleGUI Test", 100, 100)$/;"	variable	line:56
+timer	/home/lookfiresu/Desktop/code/python/chapter_1/event-driven-program.py	/^timer = simplegui.create_timer(1000, tick)$/;"	variable	line:57
+hour	/home/lookfiresu/Desktop/code/python/chapter_1/math.py	/^hour = 3$/;"	variable	line:5
+providers	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^providers: [$/;"	function	line:1
+key	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^    key: "bt"$/;"	function	line:3
+config	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^    config:$/;"	function	line:4
+commands	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^      commands: [$/;"	function	line:5
+project	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          project: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1"$/;"	function	line:7
+source	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          source: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1\/.build-tools.cson"$/;"	function	line:8
+name	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          name: "python hello_world"$/;"	function	line:9
+command	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          command: "python hello_world.py"$/;"	function	line:10
+wd	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          wd: "."$/;"	function	line:11
+env	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          env: {}$/;"	function	line:12
+modifier	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          modifier: {}$/;"	function	line:13
+stdout	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stdout:$/;"	function	line:14
+pty	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            pty: false$/;"	function	line:15
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "nh"$/;"	function	line:16
+ansi_option	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            ansi_option: "ignore"$/;"	function	line:17
+stderr	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stderr:$/;"	function	line:18
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "hc"$/;"	function	line:19
+profile	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            profile: "python"$/;"	function	line:20
+output	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          output:$/;"	function	line:21
+console	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            console:$/;"	function	line:22
+close_success	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              close_success: false$/;"	function	line:23
+queue_in_buffer	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              queue_in_buffer: true$/;"	function	line:24
+stdin	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              stdin: false$/;"	function	line:25
+linter	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            linter:$/;"	function	line:26
+no_trace	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              no_trace: false$/;"	function	line:27
+version	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          version: 1$/;"	function	line:28
+project	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          project: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1"$/;"	function	line:31
+source	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          source: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1\/.build-tools.cson"$/;"	function	line:32
+name	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          name: "python function"$/;"	function	line:33
+command	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          command: "python function.py"$/;"	function	line:34
+wd	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          wd: "."$/;"	function	line:35
+env	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          env: {}$/;"	function	line:36
+modifier	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          modifier: {}$/;"	function	line:37
+stdout	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stdout:$/;"	function	line:38
+pty	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            pty: false$/;"	function	line:39
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "nh"$/;"	function	line:40
+ansi_option	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            ansi_option: "ignore"$/;"	function	line:41
+stderr	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stderr:$/;"	function	line:42
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "hc"$/;"	function	line:43
+profile	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            profile: "python"$/;"	function	line:44
+output	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          output:$/;"	function	line:45
+console	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            console:$/;"	function	line:46
+close_success	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              close_success: false$/;"	function	line:47
+queue_in_buffer	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              queue_in_buffer: true$/;"	function	line:48
+stdin	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              stdin: false$/;"	function	line:49
+linter	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            linter:$/;"	function	line:50
+no_trace	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              no_trace: false$/;"	function	line:51
+version	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          version: 1$/;"	function	line:52
+project	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          project: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1"$/;"	function	line:55
+source	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          source: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1\/.build-tools.cson"$/;"	function	line:56
+name	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          name: "python math"$/;"	function	line:57
+command	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          command: "python math.py"$/;"	function	line:58
+wd	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          wd: "."$/;"	function	line:59
+env	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          env: {}$/;"	function	line:60
+modifier	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          modifier: {}$/;"	function	line:61
+stdout	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stdout:$/;"	function	line:62
+pty	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            pty: false$/;"	function	line:63
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "nh"$/;"	function	line:64
+ansi_option	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            ansi_option: "ignore"$/;"	function	line:65
+stderr	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stderr:$/;"	function	line:66
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "hc"$/;"	function	line:67
+profile	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            profile: "python"$/;"	function	line:68
+output	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          output:$/;"	function	line:69
+console	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            console:$/;"	function	line:70
+close_success	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              close_success: false$/;"	function	line:71
+queue_in_buffer	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              queue_in_buffer: true$/;"	function	line:72
+stdin	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              stdin: false$/;"	function	line:73
+linter	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            linter:$/;"	function	line:74
+no_trace	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              no_trace: false$/;"	function	line:75
+version	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          version: 1$/;"	function	line:76
+project	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          project: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1"$/;"	function	line:79
+source	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          source: "\/home\/lookfiresu\/Desktop\/code\/python\/chapter_1\/.build-tools.cson"$/;"	function	line:80
+name	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          name: "python event-driven-program"$/;"	function	line:81
+command	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          command: "python event-driven-program.py"$/;"	function	line:82
+wd	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          wd: "."$/;"	function	line:83
+env	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          env: {}$/;"	function	line:84
+modifier	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          modifier: {}$/;"	function	line:85
+stdout	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stdout:$/;"	function	line:86
+pty	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            pty: false$/;"	function	line:87
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "nh"$/;"	function	line:88
+ansi_option	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            ansi_option: "ignore"$/;"	function	line:89
+stderr	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          stderr:$/;"	function	line:90
+highlighting	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            highlighting: "hc"$/;"	function	line:91
+profile	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            profile: "python"$/;"	function	line:92
+output	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          output:$/;"	function	line:93
+console	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            console:$/;"	function	line:94
+close_success	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              close_success: false$/;"	function	line:95
+queue_in_buffer	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              queue_in_buffer: true$/;"	function	line:96
+stdin	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              stdin: false$/;"	function	line:97
+linter	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^            linter:$/;"	function	line:98
+no_trace	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^              no_trace: false$/;"	function	line:99
+version	/home/lookfiresu/Desktop/code/python/chapter_1/.build-tools.cson	/^          version: 1$/;"	function	line:100
