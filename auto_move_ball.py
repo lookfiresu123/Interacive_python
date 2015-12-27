@@ -8,52 +8,58 @@ import math
 # define globals
 width = 300		# frame width
 height = 300	# frame height
-ball_pos = [width / 2, height / 2]		# the ball's current position in the frame
-ball_radius = 20		# radius of ball
-ball_line_width = 2		# line width of ball
-ball_line_color = "Red"		# line color of ball
-ball_fill_color = "White"	# filling color of ball
-
-bomb_pos = [0, 0]		# the bomb's current position in the frame
-bomb_radius = 2		# radius of bomb
-bomb_line_width = 2		# line width of bomb
-bomb_line_color = "Green"		# line color of bomb
-bomb_fill_color = "Green"	# filling color of bomb
-
 speed = 10		# the ball's default speed
 current_key = ' '		# the default current key
 rebound = False		# disable rebound for default
 
-# define helper function which consist of event handlers
-# ball move left
-def move_left():
-	if ball_pos[0] > 0:
-		ball_pos[0] -= speed
+# define class
+class Ball:
+	pos = [width / 2, height / 2]		# the ball's current position in the frame
+	radius = 20		# radius of ball
+	line_width = 2		# line width of ball
+	line_color = "Red"		# line color of ball
+	fill_color = "White"	# filling color of ball
+	# ball move left
+	def move_left(self):
+		if self.pos[0] > 0:
+			self.pos[0] -= speed
 
-# ball move right
-def move_right():
-	if ball_pos[0] < width:
-		ball_pos[0] += speed
+	# ball move right
+	def move_right(self):
+		if self.pos[0] < width:
+			self.pos[0] += speed
 
-# ball move up
-def move_up():
-	if ball_pos[1] > 0:
-		ball_pos[1] -= speed
+	# ball move up
+	def move_up(self):
+		if self.pos[1] > 0:
+			self.pos[1] -= speed
 
-# ball move down
-def move_down():
-	if ball_pos[1] < height:
-		ball_pos[1] += speed
+	# ball move down
+	def move_down(self):
+		if self.pos[1] < height:
+			self.pos[1] += speed
 
-# generate a bomb
-def generate_bomb():
-	bomb_pos[0] = random.randrange(0, width)
-	bomb_pos[1] = random.randrange(0, height)
+class Bomb:
+	pos = [0, 0]		# the bomb's current position in the frame
+	radius = 2		# radius of bomb
+	line_width = 2		# line width of bomb
+	line_color = "Green"		# line color of bomb
+	fill_color = "Green"	# filling color of bomb
+	# generate a bomb
+	def generate_bomb(self):
+		self.pos[0] = random.randrange(0, width)
+		self.pos[1] = random.randrange(0, height)
 
+
+# define instance of class Ball and class Bomb
+ball = Ball()
+bomb = Bomb()
+
+# define event handlers
 # condition of catch bomb
 def catch():
-	distance = (ball_pos[0] - bomb_pos[0]) ** 2 + (ball_pos[1] - bomb_pos[1]) ** 2
-	limit = (ball_radius + bomb_radius) ** 2
+	distance = (ball.pos[0] - bomb.pos[0]) ** 2 + (ball.pos[1] - bomb.pos[1]) ** 2
+	limit = (ball.radius + bomb.radius) ** 2
 	if distance <= limit:
 		return True
 	else:
@@ -82,42 +88,42 @@ def keydown(key):
 def time_handler_ball():
 	global current_key
 	if current_key == simplegui.KEY_MAP["left"]:
-		if rebound == True and ball_pos[0] == 0:
+		if rebound == True and ball.pos[0] == 0:
 			current_key = simplegui.KEY_MAP["right"]
-			move_right()
+			ball.move_right()
 		else:
-			move_left()
+			ball.move_left()
 	elif current_key == simplegui.KEY_MAP["right"]:
-		if rebound == True and ball_pos[0] == width:
+		if rebound == True and ball.pos[0] == width:
 			current_key = simplegui.KEY_MAP["left"]
-			move_left()
+			ball.move_left()
 		else:
-			move_right()
+			ball.move_right()
 	elif current_key == simplegui.KEY_MAP["up"]:
-		if rebound == True and ball_pos[1] == 0:
+		if rebound == True and ball.pos[1] == 0:
 			current_key = simplegui.KEY_MAP["down"]
-			move_down()
+			ball.move_down()
 		else:
-			move_up()
+			ball.move_up()
 	elif current_key == simplegui.KEY_MAP["down"]:
-		if rebound == True and ball_pos[1] == height:
+		if rebound == True and ball.pos[1] == height:
 			current_key = simplegui.KEY_MAP["up"]
-			move_up()
+			ball.move_up()
 		else:
-			move_down()
+			ball.move_down()
 	if catch() == True:
 		stop()
 
 def time_handler_bomb():
-	generate_bomb()
+	bomb.generate_bomb()
 
 # reset: make the speed and ball's position default value
 def reset():
-	global speed, ball_pos, bomb_pos, rebound
+	global speed, ball, bomb, rebound
 	stop()
 	speed = 10
-	ball_pos = [width / 2, height / 2]
-	bomb_pos = [0, 0]
+	ball.pos = [width / 2, height / 2]
+	bomb.pos = [0, 0]
 	rebound = False
 	rebound_label.set_text("rebound = " + str(rebound))
 
@@ -142,8 +148,8 @@ def set_rebound():
 
 # draw the frame
 def draw(canvas):
-	canvas.draw_circle(ball_pos, ball_radius, ball_line_width, ball_line_color, ball_fill_color)
-	canvas.draw_circle(bomb_pos, bomb_radius, bomb_line_width, bomb_line_color, bomb_fill_color)
+	canvas.draw_circle(ball.pos, ball.radius, ball.line_width, ball.line_color, ball.fill_color)
+	canvas.draw_circle(bomb.pos, bomb.radius, bomb.line_width, bomb.line_color, bomb.fill_color)
 
 # create frame
 frame = simplegui.create_frame("Move Ball", width, height)
