@@ -114,10 +114,12 @@ def time_handler_bomb():
 # reset: make the speed and ball's position default value
 def reset():
 	global speed, ball_pos, bomb_pos, rebound
+	stop()
 	speed = 10
 	ball_pos = [width / 2, height / 2]
 	bomb_pos = [0, 0]
 	rebound = False
+	rebound_label.set_text("rebound = " + str(rebound))
 
 # start movement
 def start():
