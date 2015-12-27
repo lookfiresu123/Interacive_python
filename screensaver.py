@@ -40,8 +40,6 @@ def tick():
 
 # handler for draw position
 def draw(canvas):
-    global font
-    global color
     canvas.draw_text(message, position, font, color)
 
 # create frame and timer

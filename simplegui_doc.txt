@@ -1,3 +1,0 @@
-simplegui.create_frame("Title", width, height);
-simplegui.add_button("Title", function, height);
-simplegui.add_input("Title", function, height);
