@@ -6,11 +6,16 @@ import random
 import math
 
 # define globals
-width = 300		# frame width
-height = 300	# frame height
+width = 500		# frame width
+height = 500	# frame height
 speed = 10		# the ball's default speed
 current_key = ' '		# the default current key
 rebound = False		# disable rebound for default
+current_score = 0	# current score you get
+required_score = 20		# required score that you have to get
+score_per_green = 1		# score once you attach a green bomb
+score_per_yellow = 2	# score once you attach a yellow bomb
+score_per_blue = 3		# score once you attach a blue bomb
 
 # define class
 class Ball:
@@ -39,25 +44,48 @@ class Ball:
 		if self.pos[1] < height:
 			self.pos[1] += speed
 
-class Bomb:
-	pos = [0, 0]		# the bomb's current position in the frame
-	radius = 2		# radius of bomb
-	line_width = 2		# line width of bomb
-	line_color = "Green"		# line color of bomb
-	fill_color = "Green"	# filling color of bomb
-	# generate a bomb
-	def generate_bomb(self):
-		self.pos[0] = random.randrange(0, width)
-		self.pos[1] = random.randrange(0, height)
+class Bomb_Green:
+	pos = [0, 0]
+	radius = 4
+	line_width = 4
+	line_color = "Green"
+	fill_color = "Green"
 
+class Bomb_Yellow:
+	pos = [0, 0]
+	radius = 3
+	line_width = 3
+	line_color = "Yellow"
+	fill_color = "Yellow"
+
+class Bomb_Blue:
+	pos = [0, 0]
+	radius = 2
+	line_width = 2
+	line_color = "Blue"
+	fill_color = "Blue"
 
 # define instance of class Ball and class Bomb
 ball = Ball()
-bomb = Bomb()
+
+# define bomb list
+bomb_green_list = Bomb_Green()
+bomb_yellow_list = Bomb_Yellow()
+bomb_blue_list = Bomb_Blue()
 
 # define event handlers
+# generate a bomb
+def generate_bomb():
+	global bomb_green_list, bomb_yellow_list, bomb_blue_list
+	bomb_green_list.pos[0] = random.randrange(0, width)
+	bomb_green_list.pos[1] = random.randrange(0, height)
+	bomb_yellow_list.pos[0] = random.randrange(0, width)
+	bomb_yellow_list.pos[1] = random.randrange(0, height)
+	bomb_blue_list.pos[0] = random.randrange(0, width)
+	bomb_blue_list.pos[1] = random.randrange(0, height)
+
 # condition of catch bomb
-def catch():
+def catch(ball, bomb):
 	distance = (ball.pos[0] - bomb.pos[0]) ** 2 + (ball.pos[1] - bomb.pos[1]) ** 2
 	limit = (ball.radius + bomb.radius) ** 2
 	if distance <= limit:
@@ -65,7 +93,16 @@ def catch():
 	else:
 		return False
 
-# define event handlers
+# calculator the score
+def get_score():
+	global current_score
+	if catch(ball, bomb_green_list) == True:
+		current_score += score_per_green
+	if catch(ball, bomb_yellow_list) == True:
+		current_score += score_per_yellow
+	if catch(ball, bomb_blue_list) == True:
+		current_score += score_per_blue
+
 # speed up the ball's movement
 def speed_up():
 	global speed
@@ -111,21 +148,28 @@ def time_handler_ball():
 			ball.move_up()
 		else:
 			ball.move_down()
-	if catch() == True:
+	get_score()
+	if current_score >= required_score:
 		stop()
 
 def time_handler_bomb():
-	bomb.generate_bomb()
+	generate_bomb()
 
 # reset: make the speed and ball's position default value
 def reset():
-	global speed, ball, bomb, rebound
-	stop()
+	global speed, ball, bomb, rebound, score_string
+	# stop()
 	speed = 10
 	ball.pos = [width / 2, height / 2]
-	bomb.pos = [0, 0]
+	bomb_green_list.pos = [0, 0]
+	bomb_yellow_list.pos = [0, 0]
+	bomb_blue_list.pos = [0, 0]
 	rebound = False
 	rebound_label.set_text("rebound = " + str(rebound))
+	current_score = 0
+	score_string =  "0/" + str(required_score)
+	# frame.set_draw_handler(draw)	# draws 50 times per second
+	stop()
 
 # start movement
 def start():
@@ -148,8 +192,13 @@ def set_rebound():
 
 # draw the frame
 def draw(canvas):
+	# global bomb_green_list, bomb_yellow_list, bomb_blue_list
 	canvas.draw_circle(ball.pos, ball.radius, ball.line_width, ball.line_color, ball.fill_color)
-	canvas.draw_circle(bomb.pos, bomb.radius, bomb.line_width, bomb.line_color, bomb.fill_color)
+	canvas.draw_circle(bomb_green_list.pos, bomb_green_list.radius, bomb_green_list.line_width, bomb_green_list.line_color, bomb_green_list.fill_color)
+	canvas.draw_circle(bomb_yellow_list.pos, bomb_yellow_list.radius, bomb_yellow_list.line_width, bomb_yellow_list.line_color, bomb_yellow_list.fill_color)
+	canvas.draw_circle(bomb_blue_list.pos, bomb_blue_list.radius, bomb_blue_list.line_width, bomb_blue_list.line_color, bomb_blue_list.fill_color)
+	score_string = str(current_score) + "/" + str(required_score)
+	canvas.draw_text(score_string, [400, 50], 20, "White")
 
 # create frame
 frame = simplegui.create_frame("Move Ball", width, height)
