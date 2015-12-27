@@ -31,6 +31,7 @@ screensaver.py | 屏保
 stopwatch.py | 计时器
 keyboard_echo.py | 显示键盘敲击情况
 move_ball.py | 移动球体
+auto_move_ball.py | 一个小游戏 —— 使用球体去抓住绿色的炸弹
 
 ## Document
 [codeskulptor](http://www.cs.rice.edu/~greiner/codeskulptor_test/docs.html#tabs-Python "codeskulptor")
