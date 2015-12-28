@@ -21,13 +21,25 @@ class Ball:
 
 	def move_rule(self):
 		global current_speed_x, current_speed_y
-		rule_x = self.pos[0] <= 0 or self.pos[0] >= width
-		rule_y = self.pos[1] <= 0 or self.pos[1] >= width
-		if rule_x == True and rule_y == False:
+		# rule_x = self.pos[0] <= self.radius or self.pos[0] >= (width - self.radius)
+		# rule_y = self.pos[1] <= self.radius or self.pos[1] >= (height - self.radius)
+		# if rule_x == True and rule_y == False:
+		# 	current_speed_x = 0 - current_speed_x
+		# elif rule_x == False and rule_y == True:
+		# 	current_speed_y = 0 - current_speed_y
+		# elif rule_x == True and rule_y == True:
+		# 	current_speed_x = 0 - current_speed_x
+		# 	current_speed_y = 0 - current_speed_y
+		rule_x_left = self.pos[0] <= self.radius and current_speed_x < 0
+		rule_x_right = self.pos[0] >= (width - self.radius) and current_speed_x > 0
+		rule_y_up = self.pos[1] <= self.radius and current_speed_y > 0
+		rule_y_down = self.pos[1] >= (width - self.radius) and current_speed_y < 0
+
+		if (rule_x_left == True and ((rule_y_up == False and rule_y_down == False) == True)) or (rule_x_right == True and ((rule_y_up == False and rule_y_down == False) == True)):
 			current_speed_x = 0 - current_speed_x
-		elif rule_x == False and rule_y == True:
+		elif (rule_y_up == True and ((rule_x_left == False and rule_x_right == False) == True)) or (rule_y_down == True and ((rule_x_left == False and rule_x_right == False) == True)):
 			current_speed_y = 0 - current_speed_y
-		elif rule_x == True and rule_y == True:
+		elif (rule_x_left == True and rule_y_up == True) or (rule_x_left == True and rule_y_down == True) or (rule_x_right == True and rule_y_up == True) or (rule_x_right == True and rule_y_down == True):
 			current_speed_x = 0 - current_speed_x
 			current_speed_y = 0 - current_speed_y
 
