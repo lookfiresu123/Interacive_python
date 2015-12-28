@@ -16,6 +16,7 @@ required_score = 20		# required score that you have to get
 score_per_green = 1		# score once you attach a green bomb
 score_per_yellow = 2	# score once you attach a yellow bomb
 score_per_blue = 3		# score once you attach a blue bomb
+score_string = str(current_score) + "/" + str(required_score)	# string format of score
 
 # define class
 class Ball:
@@ -157,7 +158,8 @@ def time_handler_bomb():
 
 # reset: make the speed and ball's position default value
 def reset():
-	global speed, ball, bomb, rebound, score_string
+	global speed, ball, rebound, score_string, current_score
+	# global bomb_green_list, bomb_yellow_list, bomb_blue_list
 	# stop()
 	speed = 10
 	ball.pos = [width / 2, height / 2]
@@ -167,9 +169,9 @@ def reset():
 	rebound = False
 	rebound_label.set_text("rebound = " + str(rebound))
 	current_score = 0
-	score_string =  "0/" + str(required_score)
+	score_string =  str(current_score) + "/" + str(required_score)
 	# frame.set_draw_handler(draw)	# draws 50 times per second
-	stop()
+	# stop()
 
 # start movement
 def start():
@@ -197,6 +199,7 @@ def draw(canvas):
 	canvas.draw_circle(bomb_green_list.pos, bomb_green_list.radius, bomb_green_list.line_width, bomb_green_list.line_color, bomb_green_list.fill_color)
 	canvas.draw_circle(bomb_yellow_list.pos, bomb_yellow_list.radius, bomb_yellow_list.line_width, bomb_yellow_list.line_color, bomb_yellow_list.fill_color)
 	canvas.draw_circle(bomb_blue_list.pos, bomb_blue_list.radius, bomb_blue_list.line_width, bomb_blue_list.line_color, bomb_blue_list.fill_color)
+	global score_string
 	score_string = str(current_score) + "/" + str(required_score)
 	canvas.draw_text(score_string, [400, 50], 20, "White")
 
