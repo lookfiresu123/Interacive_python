@@ -3,6 +3,7 @@
 # import module
 import simpleguitk as simplegui
 import random
+import math
 
 # define globals
 FRAME_WIDTH = 600		# frame's width
@@ -10,10 +11,14 @@ FRAME_HEIGHT = 400	# frame's height
 PAD_WIDTH = 8		# pad's initial width
 PAD_HEIGHT = 80		# pad's initial height
 BALL_SPEED = [0, 0]		# ball's initial speed
-left_score = 0		# the score that left player get during this game
-right_score = 0		# the score that right player get during this game
+left_loss_score = 0		# the score that left player get during this game
+right_loss_score = 0		# the score that right player get during this game
+# left_loss_score_string = "0"	# the string writen on the left frame
+# right_loss_score_string = "0"	# the string writen on the right frame
 # current_key = ' '	# current keyword that player press
 PASS_LENGTH	= 20	# default passing length for either left pad or right pad
+start_speed_rate = 8	# the initial ball's speed
+accelerate_speed_rate = 4	# the accelerate for speed once pad attachs the ball
 
 class Ball:
 	pos = [FRAME_WIDTH / 2, FRAME_HEIGHT / 2]
@@ -23,13 +28,36 @@ class Ball:
 	fill_color = "White"	# filling color of ball
 	speed = BALL_SPEED		# ball's initial speed
 
-	def move_rule(self):
-		rule_x_left = self.pos[0] <= self.radius and self.speed[0] < 0
-		rule_x_right = self.pos[0] >= (FRAME_WIDTH - self.radius) and self.speed[0] > 0
+	def accelerate_speed(self, _speed):
+		if _speed < 0:
+			_speed -= accelerate_speed_rate
+		elif _speed > 0:
+			_speed += accelerate_speed_rate
+		return _speed
+
+
+	def move_rule(self, pad_left, pad_right):
+		global left_loss_score, right_loss_score
+
+		rule_x_left = self.pos[0] <= (PAD_WIDTH + self.radius) and self.speed[0] < 0
+		rule_x_right = self.pos[0] >= (FRAME_WIDTH - self.radius - PAD_WIDTH) and self.speed[0] > 0
 		rule_y_up = self.pos[1] <= self.radius and self.speed[1] < 0
 		rule_y_down = self.pos[1] >= (FRAME_HEIGHT - self.radius) and self.speed[1] > 0
+
+		distance_left = math.sqrt((self.pos[0] - pad_left.pos[0]) ** 2 + (self.pos[1] - pad_left.pos[1]) ** 2)
+		distance_right = math.sqrt((self.pos[0] - pad_right.pos[0]) ** 2 + (self.pos[1] - pad_right.pos[1]) ** 2)
+		distance_limit_left = math.sqrt((pad_left.pad_height / 2) ** 2 + (pad_left.pad_width / 2 + self.radius) ** 2)
+		distance_limit_right = math.sqrt((pad_right.pad_height / 2) ** 2 + (pad_right.pad_width / 2 + self.radius) ** 2)
+
 		if (rule_x_left == True and ((rule_y_up == False and rule_y_down == False) == True)) or (rule_x_right == True and ((rule_y_up == False and rule_y_down == False) == True)):
 			# print "old speed[0] = " + str(self.speed[0])
+			if rule_x_left == True and distance_left > distance_limit_left:
+				left_loss_score += 1
+			elif rule_x_right == True and distance_right > distance_limit_right:
+				right_loss_score += 1
+			else:
+				self.speed[0] = self.accelerate_speed(self.speed[0])
+				self.speed[1] = self.accelerate_speed(self.speed[1])
 			self.speed[0] = 0 - self.speed[0]
 			# print "new speed[0] = " + str(self.speed[0])
 		elif (rule_y_up == True and ((rule_x_left == False and rule_x_right == False) == True)) or (rule_y_down == True and ((rule_x_left == False and rule_x_right == False) == True)):
@@ -38,6 +66,13 @@ class Ball:
 			# print "new speed[1] = " + str(self.speed[1])
 		elif (rule_x_left == True and rule_y_up == True) or (rule_x_left == True and rule_y_down == True) or (rule_x_right == True and rule_y_up == True) or (rule_x_right == True and rule_y_down == True):
 			# print "old speed[0] = " + str(self.speed[0]) + ", old speed[1] = " + str(self.speed[1])
+			if rule_x_left == True and distance_left > distance_limit_left:
+				left_loss_score += 1
+			elif rule_x_right == True and distance_right > distance_limit_right:
+				right_loss_score += 1
+			else:
+				self.speed[0] = self.accelerate_speed(self.speed[0])
+				self.speed[1] = self.accelerate_speed(self.speed[1])
 			self.speed[0] = 0 - self.speed[0]
 			self.speed[1] = 0 - self.speed[1]
 			# print "new speed[0] = " + str(self.speed[0]) + ", new speed[1] = " + str(self.speed[1])
@@ -68,7 +103,7 @@ def spawn_ball():
 	pad_left.pos = [pad_left.pad_width / 2, FRAME_HEIGHT / 2]
 	pad_right.pos = [FRAME_WIDTH - (pad_right.pad_width / 2), FRAME_HEIGHT / 2]
 	choice = random.randrange(0, 3)
-	start_speed_rate = 8
+	global start_speed_rate
 	if choice == 0:
 		ball.speed = [0 - start_speed_rate, 0 - start_speed_rate]
 	elif choice == 1:
@@ -80,7 +115,11 @@ def spawn_ball():
 
 # define event handlers
 def restart():
+	global left_loss_score, right_loss_score
 	spawn_ball()
+	left_loss_score = 0
+	right_loss_score = 0
+
 
 def keydown(key):
 	# handle left pad or right pad
@@ -95,9 +134,13 @@ def keydown(key):
 
 def time_handler():
 	# handle ball
-	ball.move_rule()
-	ball.pos[0] += ball.speed[0]
-	ball.pos[1] += ball.speed[1]
+	ball.move_rule(pad_left, pad_right)
+	if left_loss_score < 5 and right_loss_score < 5:
+		ball.pos[0] += ball.speed[0]
+		ball.pos[1] += ball.speed[1]
+	else:
+		ball.pos = [FRAME_WIDTH / 2, FRAME_HEIGHT / 2]
+		stop()
 
 def start():
 	timer.start()
@@ -124,8 +167,11 @@ def draw(canvas):
 	canvas.draw_polygon([pad_right_upper_left, pad_right_upper_right, pad_right_down_right, pad_right_down_left], 0, "White", "White")
 	# draw ball
 	canvas.draw_circle(ball.pos, ball.radius, ball.line_width, ball.line_color, ball.fill_color)
-	canvas.draw_text(str(left_score), [250, 50], 30, "Red")
-	canvas.draw_text(str(right_score), [320, 50], 30, "Red")
+	# global left_loss_score_string, right_loss_score_string
+	# left_loss_score_string = str(left_loss_score)
+	# right_loss_score_string = str(right_loss_score)
+	canvas.draw_text(str(left_loss_score), [250, 50], 30, "Red")
+	canvas.draw_text(str(right_loss_score), [320, 50], 30, "Red")
 
 # create frame
 frame = simplegui.create_frame("Pong Game", FRAME_WIDTH, FRAME_HEIGHT)

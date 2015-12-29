@@ -38,6 +38,7 @@ keyboard_move_ball.py | 移动球体
 auto_move_ball.py | 一个小游戏 —— 使用球体去抓住绿色的炸弹
 rebound_ball.py | 一个关于自由落体的动画
 control_speed_keyboard.py | 手控球体运动方向和速度 —— 可变速
+pong.py | 一个古老的小游戏 —— pong game
 
 ## Document
 [codeskulptor](http://www.cs.rice.edu/~greiner/codeskulptor_test/docs.html#tabs-Python "codeskulptor")
